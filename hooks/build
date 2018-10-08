@@ -1,0 +1,7 @@
+#!/bin/sh
+
+uid=$(echo ${CACHE_TAG} | awk 'BEGIN {FS="_"} {print $2}')
+gid=$(echo ${CACHE_TAG} | awk 'BEGIN {FS="_"} {print $3}')
+
+echo "building with UID=${uid} and GID=${gid}"
+docker build --build-arg UID=${uid} --build-arg=${gid} -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME} .
