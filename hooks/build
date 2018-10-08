@@ -4,4 +4,4 @@ uid=$(echo ${DOCKER_TAG} | awk 'BEGIN {FS="_"} {print $2}')
 gid=$(echo ${DOCKER_TAG} | awk 'BEGIN {FS="_"} {print $3}')
 
 echo "building with UID=${uid} and GID=${gid} based on DOCKER_TAG=${DOCKER_TAG}"
-docker build --build-arg UID=${uid} --build-arg GID=${gid} -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME} .
+docker build --build-arg UID=${uid} --build-arg GID=${gid} -t ${IMAGE_NAME} .
