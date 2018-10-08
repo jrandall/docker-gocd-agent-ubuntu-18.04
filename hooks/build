@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "build hook dumping env"
+env
+
 uid=$(echo ${CACHE_TAG} | awk 'BEGIN {FS="_"} {print $2}')
 gid=$(echo ${CACHE_TAG} | awk 'BEGIN {FS="_"} {print $3}')
 
