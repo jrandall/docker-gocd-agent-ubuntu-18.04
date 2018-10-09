@@ -52,6 +52,8 @@ setup_autoregister_properties_file() {
 
 [ -z "${VOLUME_DIR}" ] && VOLUME_DIR="/godata"
 
+VOLUME_DIR="${VOLUME_DIR}/${GO_EA_GUID}"
+
 AGENT_WORK_DIR="/go"
 
 # no arguments are passed so assume user wants to run the gocd server
