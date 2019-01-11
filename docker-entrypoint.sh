@@ -78,12 +78,14 @@ if [ "$1" = '/go-agent/agent.sh' ]; then
 
     # ensure proper directory structure in the volume directory
     if [ ! -e "${VOLUME_DIR}" ]; then
+        yell "Creating VOLUME_DIR ${VOLUME_DIR}"
       try mkdir "${VOLUME_DIR}"
-      try chown go:go "${AGENT_WORK_DIR}"
+      try chown go:go "${VOLUME_DIR}"
     fi
 
     for each_dir in "${server_dirs[@]}"; do
       if [ ! -e "${VOLUME_DIR}/${each_dir}" ]; then
+        yell "Creating VOLUME_DIR/each_dir ${VOLUME_DIR}/${each_dir}"
         try mkdir -v "${VOLUME_DIR}/${each_dir}"
         try chown go:go "${VOLUME_DIR}/${each_dir}"
       fi
